@@ -31,6 +31,9 @@
 		000D693D24A451B8004284AB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D693C24A451B8004284AB /* MainViewController.swift */; };
 		000D693F24A451C0004284AB /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D693E24A451C0004284AB /* MainViewModel.swift */; };
 		000D694124A46B75004284AB /* CLLocation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694024A46B75004284AB /* CLLocation+Ext.swift */; };
+		000D694324A4E341004284AB /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694224A4E341004284AB /* TempModel.swift */; };
+		000D694524A4E3D1004284AB /* WeatherDescModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694424A4E3D1004284AB /* WeatherDescModel.swift */; };
+		000D694724A4F982004284AB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694624A4F982004284AB /* CustomButton.swift */; };
 		AA8F20322F915C179BFECF9A /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A83A864C6BE25F9E332A1E /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,9 @@
 		000D693C24A451B8004284AB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		000D693E24A451C0004284AB /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		000D694024A46B75004284AB /* CLLocation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Ext.swift"; sourceTree = "<group>"; };
+		000D694224A4E341004284AB /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
+		000D694424A4E3D1004284AB /* WeatherDescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDescModel.swift; sourceTree = "<group>"; };
+		000D694624A4F982004284AB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		51A83A864C6BE25F9E332A1E /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F5668F2778A6AE7A92F7D3 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		ECAAD085483EEF7727900D56 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				000D693724A44F8F004284AB /* WeatherModel.swift */,
+				000D694224A4E341004284AB /* TempModel.swift */,
+				000D694424A4E3D1004284AB /* WeatherDescModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +159,7 @@
 			children = (
 				000D693524A3BDFE004284AB /* Constants.swift */,
 				000D693324A3BDF0004284AB /* ViewModelType.swift */,
+				000D694624A4F982004284AB /* CustomButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000D694524A4E3D1004284AB /* WeatherDescModel.swift in Sources */,
 				000D691524A3BC8A004284AB /* Application.swift in Sources */,
 				000D693624A3BDFE004284AB /* Constants.swift in Sources */,
 				000D692F24A3BDB9004284AB /* UIViewController+Ext.swift in Sources */,
@@ -321,11 +331,13 @@
 				000D690124A3BC15004284AB /* AppDelegate.swift in Sources */,
 				000D692B24A3BDB9004284AB /* Reusable.swift in Sources */,
 				000D692E24A3BDB9004284AB /* ErrorTracker.swift in Sources */,
+				000D694324A4E341004284AB /* TempModel.swift in Sources */,
 				000D693124A3BDB9004284AB /* Log.swift in Sources */,
 				000D691E24A3BD4E004284AB /* NetworkProvider.swift in Sources */,
 				000D692D24A3BDB9004284AB /* ActivityIndicator.swift in Sources */,
 				000D693F24A451C0004284AB /* MainViewModel.swift in Sources */,
 				000D693424A3BDF0004284AB /* ViewModelType.swift in Sources */,
+				000D694724A4F982004284AB /* CustomButton.swift in Sources */,
 				000D692C24A3BDB9004284AB /* Array+Ext.swift in Sources */,
 				000D692A24A3BDB9004284AB /* Date+Ext.swift in Sources */,
 				000D692024A3BD6C004284AB /* WeatherNetwork.swift in Sources */,

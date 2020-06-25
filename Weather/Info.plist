@@ -46,5 +46,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Need to detect your city</string>
+
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Need to detect your city</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Need to detect your city</string>
 </dict>
 </plist>

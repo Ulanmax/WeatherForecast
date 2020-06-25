@@ -18,7 +18,7 @@ public final class WeatherNetwork {
     }
     
     public func fetchWeather(city: String) -> Observable<WeatherModel> {
-        let params = ["q": city]
+        let params = ["q": city, "units": "metric"]
         return network.getItem(path, params: params).map({ (result) -> WeatherModel in
             return result
         })

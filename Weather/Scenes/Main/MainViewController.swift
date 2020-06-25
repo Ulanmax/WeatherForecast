@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CoreLocation
 
 class MainViewController: UIViewController {
     
@@ -18,9 +19,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var labelAdditional: UILabel!
     @IBOutlet weak var labelTemper: UILabel!
     @IBOutlet weak var imageViewCity: UIImageView!
-    @IBOutlet weak var textViewNote: UITextView!
+    @IBOutlet weak var labelNote: UILabel!
+    @IBOutlet weak var buttonAddNote: UIButton!
     
     private let disposeBag = DisposeBag()
+    
+    let locationManager = CLLocationManager()
     
     var viewModel: MainViewModel!
     
@@ -42,6 +46,10 @@ class MainViewController: UIViewController {
     }
     
     private func configureUI() {
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     private func bindViewModel() {
@@ -49,19 +57,42 @@ class MainViewController: UIViewController {
             return
         }
         
-        let locationTrigger = rx.sentMessage(#selector(MainViewController.changeCity(_:)))
+        let cityTrigger = rx.sentMessage(#selector(MainViewController.changeCity(_:)))
+            .map({ (value) -> String in
+                return value[0] as! String
+            })
+        .asDriverOnErrorJustComplete()
+        
+        let countryTrigger = rx.sentMessage(#selector(MainViewController.changeCountry(_:)))
             .map({ (value) -> String in
                 return value[0] as! String
             })
         .asDriverOnErrorJustComplete()
         
         let input = MainViewModel.Input(
-            trigger: locationTrigger
+            cityTrigger: cityTrigger.distinctUntilChanged(),
+            countryTrigger: countryTrigger.distinctUntilChanged()
         )
         let output = viewModel.transform(input: input)
         
         [
-            output.error.drive(errorBinding)
+            output.error.drive(errorBinding),
+            output.fetching.drive(fetchingBinding),
+            output.city.drive(onNext: { [weak self] (value) in
+                self?.labelCity.text = value
+            }),
+            output.country.drive(onNext: { [weak self] (value) in
+                self?.labelCountry.text = value
+            }),
+            output.temperature.drive(onNext: { [weak self] (value) in
+                self?.labelTemper.text = value
+            }),
+            output.weatherDescription.drive(onNext: { [weak self] (value) in
+                self?.labelAdditional.text = value
+            }),
+            output.recommendation.drive(onNext: { [weak self] (value) in
+                self?.labelReccomendation.text = value
+            })
         ]
         .forEach({$0.disposed(by: disposeBag)})
         
@@ -69,5 +100,20 @@ class MainViewController: UIViewController {
     
     @objc dynamic func changeCity(_ city: String) -> String {
         return city
+    }
+    
+    @objc dynamic func changeCountry(_ country: String) -> String {
+        return country
+    }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocation = manager.location else { return }
+        locValue.fetchCityAndCountry { [weak self] city, country, error in
+            guard let city = city, let country = country, error == nil else { return }
+            let _ = self?.changeCity(city)
+            let _ = self?.changeCountry(country)
+        }
     }
 }

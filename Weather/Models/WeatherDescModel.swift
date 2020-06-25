@@ -1,5 +1,5 @@
 //
-//  WeatherModel.swift
+//  WeatherDescModel.swift
 //  Weather
 //
 //  Created by Maks Niagolov on 2020/06/25.
@@ -8,29 +8,21 @@
 
 import Foundation
 
-public class WeatherModel: Codable {
+public class WeatherDescModel: Codable {
     
     public let id: Int
-    public let name: String
-    public let weather: [WeatherDescModel]
-    public let main: TempModel
+    public let main: String
     
     public init(
         id: Int,
-        name: String,
-        weather: [WeatherDescModel],
-        main: TempModel
+        main: String
         ) {
         self.id = id
-        self.name = name
-        self.weather = weather
         self.main = main
     }
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case name
-        case weather
         case main
     }
     
@@ -38,9 +30,6 @@ public class WeatherModel: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Int.self, forKey: .id)
-        name = try container.decode(String.self, forKey: .name)
-        weather = try container.decode([WeatherDescModel].self, forKey: .weather)
-        main = try container.decode(TempModel.self, forKey: .main)
+        main = try container.decode(String.self, forKey: .main)
     }
 }
-

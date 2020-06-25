@@ -13,9 +13,15 @@ import RxCocoa
 final class MainViewModel: ViewModelType {
     
     struct Input {
-        let trigger: Driver<String>
+        let cityTrigger: Driver<String>
+        let countryTrigger: Driver<String>
     }
     struct Output {
+        let city: Driver<String>
+        let country: Driver<String>
+        let temperature: Driver<String>
+        let weatherDescription: Driver<String>
+        let recommendation: Driver<String>
         let fetching: Driver<Bool>
         let error: Driver<Error>
     }
@@ -35,12 +41,27 @@ final class MainViewModel: ViewModelType {
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
         
-        let weather = input.trigger.flatMapLatest { city -> SharedSequence<DriverSharingStrategy, WeatherModel> in
+        let weather = input.cityTrigger.flatMapLatest { city -> SharedSequence<DriverSharingStrategy, WeatherModel> in
             return self.useCase.fetchWeather(city: city)
                         .trackActivity(activityIndicator)
                         .trackError(errorTracker)
                         .asDriverOnErrorJustComplete()
                 }
+        
+        let temperature = weather.map { value -> String in
+            return "\(value.main.temp)°"
+        }
+        
+        let weatherDescription = weather.map { value -> String in
+            if let weatherDescr = value.weather.first {
+                return weatherDescr.main
+            }
+            return ""
+        }
+        
+        let recommendation = weather.map { value -> String in
+            return WeatherTypes.determineType(for: value.main.temp)
+        }
 //
 //        let search = Driver.combineLatest(input.searchTrigger, regions).map { (value) -> [RegionTableViewCellModel] in
 //            return value.1.filter { (model) -> Bool in
@@ -59,7 +80,14 @@ final class MainViewModel: ViewModelType {
 //            }
 //        ).mapToVoid()
         
-        return Output(fetching: fetching,
-                      error: errors)
+        return Output(
+            city: input.cityTrigger,
+            country: input.countryTrigger,
+            temperature: temperature,
+            weatherDescription: weatherDescription,
+            recommendation: recommendation,
+            fetching: fetching,
+            error: errors
+        )
     }
 }
