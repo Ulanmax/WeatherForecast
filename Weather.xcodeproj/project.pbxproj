@@ -34,6 +34,19 @@
 		000D694324A4E341004284AB /* TempModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694224A4E341004284AB /* TempModel.swift */; };
 		000D694524A4E3D1004284AB /* WeatherDescModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694424A4E3D1004284AB /* WeatherDescModel.swift */; };
 		000D694724A4F982004284AB /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694624A4F982004284AB /* CustomButton.swift */; };
+		000D694A24A4FB86004284AB /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694924A4FB86004284AB /* AddNoteViewController.swift */; };
+		000D694C24A4FB8F004284AB /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694B24A4FB8F004284AB /* AddNoteViewModel.swift */; };
+		000D694E24A4FC37004284AB /* AddNoteNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D694D24A4FC37004284AB /* AddNoteNavigator.swift */; };
+		000D695124A4FC58004284AB /* AddNote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 000D695024A4FC58004284AB /* AddNote.storyboard */; };
+		000D695424A5B645004284AB /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695324A5B645004284AB /* Repository.swift */; };
+		000D695724A5B6BF004284AB /* RepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695624A5B6BF004284AB /* RepositoryProvider.swift */; };
+		000D695924A5B760004284AB /* NotesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695824A5B760004284AB /* NotesRepository.swift */; };
+		000D695B24A5B9E2004284AB /* NoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695A24A5B9E2004284AB /* NoteModel.swift */; };
+		000D696024A5BB0E004284AB /* RealmRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695D24A5BB0E004284AB /* RealmRepresentable.swift */; };
+		000D696124A5BB0E004284AB /* DomainConvertibleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695E24A5BB0E004284AB /* DomainConvertibleType.swift */; };
+		000D696224A5BB0E004284AB /* RMNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D695F24A5BB0E004284AB /* RMNoteModel.swift */; };
+		000D696A24A5BDC7004284AB /* Realm+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D696824A5BDC7004284AB /* Realm+Ext.swift */; };
+		000D696B24A5BDC7004284AB /* RunLoopThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000D696924A5BDC7004284AB /* RunLoopThreadScheduler.swift */; };
 		AA8F20322F915C179BFECF9A /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A83A864C6BE25F9E332A1E /* Pods_Weather.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +80,19 @@
 		000D694224A4E341004284AB /* TempModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempModel.swift; sourceTree = "<group>"; };
 		000D694424A4E3D1004284AB /* WeatherDescModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDescModel.swift; sourceTree = "<group>"; };
 		000D694624A4F982004284AB /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		000D694924A4FB86004284AB /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		000D694B24A4FB8F004284AB /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		000D694D24A4FC37004284AB /* AddNoteNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteNavigator.swift; sourceTree = "<group>"; };
+		000D695024A4FC58004284AB /* AddNote.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNote.storyboard; sourceTree = "<group>"; };
+		000D695324A5B645004284AB /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		000D695624A5B6BF004284AB /* RepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryProvider.swift; sourceTree = "<group>"; };
+		000D695824A5B760004284AB /* NotesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesRepository.swift; sourceTree = "<group>"; };
+		000D695A24A5B9E2004284AB /* NoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteModel.swift; sourceTree = "<group>"; };
+		000D695D24A5BB0E004284AB /* RealmRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRepresentable.swift; sourceTree = "<group>"; };
+		000D695E24A5BB0E004284AB /* DomainConvertibleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainConvertibleType.swift; sourceTree = "<group>"; };
+		000D695F24A5BB0E004284AB /* RMNoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RMNoteModel.swift; sourceTree = "<group>"; };
+		000D696824A5BDC7004284AB /* Realm+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Realm+Ext.swift"; sourceTree = "<group>"; };
+		000D696924A5BDC7004284AB /* RunLoopThreadScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunLoopThreadScheduler.swift; sourceTree = "<group>"; };
 		51A83A864C6BE25F9E332A1E /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F5668F2778A6AE7A92F7D3 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		ECAAD085483EEF7727900D56 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +136,7 @@
 				000D691624A3BCD2004284AB /* Utilities */,
 				000D691924A3BCF5004284AB /* Common */,
 				000D691724A3BCDC004284AB /* Models */,
+				000D695224A5B506004284AB /* Repository */,
 				000D691A24A3BCFA004284AB /* Network */,
 				000D691824A3BCED004284AB /* Scenes */,
 				000D690924A3BC19004284AB /* Assets.xcassets */,
@@ -132,6 +159,8 @@
 				000D692624A3BDB9004284AB /* UIViewController+Ext.swift */,
 				000D694024A46B75004284AB /* CLLocation+Ext.swift */,
 				000D692924A3BDB9004284AB /* Utilities.swift */,
+				000D696824A5BDC7004284AB /* Realm+Ext.swift */,
+				000D696924A5BDC7004284AB /* RunLoopThreadScheduler.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -142,6 +171,7 @@
 				000D693724A44F8F004284AB /* WeatherModel.swift */,
 				000D694224A4E341004284AB /* TempModel.swift */,
 				000D694424A4E3D1004284AB /* WeatherDescModel.swift */,
+				000D695A24A5B9E2004284AB /* NoteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,6 +179,7 @@
 		000D691824A3BCED004284AB /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				000D694824A4FB63004284AB /* AddNote */,
 				000D693924A4514C004284AB /* Main */,
 			);
 			path = Scenes;
@@ -183,6 +214,46 @@
 				000D693E24A451C0004284AB /* MainViewModel.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		000D694824A4FB63004284AB /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
+				000D695024A4FC58004284AB /* AddNote.storyboard */,
+				000D694D24A4FC37004284AB /* AddNoteNavigator.swift */,
+				000D694924A4FB86004284AB /* AddNoteViewController.swift */,
+				000D694B24A4FB8F004284AB /* AddNoteViewModel.swift */,
+			);
+			path = AddNote;
+			sourceTree = "<group>";
+		};
+		000D695224A5B506004284AB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				000D696324A5BB12004284AB /* RealmEntities */,
+				000D695324A5B645004284AB /* Repository.swift */,
+				000D695624A5B6BF004284AB /* RepositoryProvider.swift */,
+				000D695824A5B760004284AB /* NotesRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		000D695C24A5BB0E004284AB /* Convertion */ = {
+			isa = PBXGroup;
+			children = (
+				000D695D24A5BB0E004284AB /* RealmRepresentable.swift */,
+				000D695E24A5BB0E004284AB /* DomainConvertibleType.swift */,
+			);
+			path = Convertion;
+			sourceTree = "<group>";
+		};
+		000D696324A5BB12004284AB /* RealmEntities */ = {
+			isa = PBXGroup;
+			children = (
+				000D695C24A5BB0E004284AB /* Convertion */,
+				000D695F24A5BB0E004284AB /* RMNoteModel.swift */,
+			);
+			path = RealmEntities;
 			sourceTree = "<group>";
 		};
 		3313CA01E604551FB9B99F05 /* Pods */ = {
@@ -262,6 +333,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				000D695124A4FC58004284AB /* AddNote.storyboard in Resources */,
 				000D690D24A3BC19004284AB /* LaunchScreen.storyboard in Resources */,
 				000D690A24A3BC19004284AB /* Assets.xcassets in Resources */,
 				000D690824A3BC15004284AB /* Main.storyboard in Resources */,
@@ -318,15 +390,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				000D694524A4E3D1004284AB /* WeatherDescModel.swift in Sources */,
+				000D694E24A4FC37004284AB /* AddNoteNavigator.swift in Sources */,
 				000D691524A3BC8A004284AB /* Application.swift in Sources */,
 				000D693624A3BDFE004284AB /* Constants.swift in Sources */,
 				000D692F24A3BDB9004284AB /* UIViewController+Ext.swift in Sources */,
 				000D694124A46B75004284AB /* CLLocation+Ext.swift in Sources */,
+				000D695B24A5B9E2004284AB /* NoteModel.swift in Sources */,
 				000D693824A44F8F004284AB /* WeatherModel.swift in Sources */,
+				000D695424A5B645004284AB /* Repository.swift in Sources */,
+				000D696A24A5BDC7004284AB /* Realm+Ext.swift in Sources */,
+				000D694C24A4FB8F004284AB /* AddNoteViewModel.swift in Sources */,
 				000D693B24A451AB004284AB /* MainNavigator.swift in Sources */,
 				000D693D24A451B8004284AB /* MainViewController.swift in Sources */,
+				000D696B24A5BDC7004284AB /* RunLoopThreadScheduler.swift in Sources */,
+				000D695924A5B760004284AB /* NotesRepository.swift in Sources */,
+				000D694A24A4FB86004284AB /* AddNoteViewController.swift in Sources */,
 				000D693224A3BDB9004284AB /* Utilities.swift in Sources */,
 				000D693024A3BDB9004284AB /* Observable+Ext.swift in Sources */,
+				000D696024A5BB0E004284AB /* RealmRepresentable.swift in Sources */,
 				000D691C24A3BD35004284AB /* Network.swift in Sources */,
 				000D690124A3BC15004284AB /* AppDelegate.swift in Sources */,
 				000D692B24A3BDB9004284AB /* Reusable.swift in Sources */,
@@ -336,11 +417,14 @@
 				000D691E24A3BD4E004284AB /* NetworkProvider.swift in Sources */,
 				000D692D24A3BDB9004284AB /* ActivityIndicator.swift in Sources */,
 				000D693F24A451C0004284AB /* MainViewModel.swift in Sources */,
+				000D696224A5BB0E004284AB /* RMNoteModel.swift in Sources */,
 				000D693424A3BDF0004284AB /* ViewModelType.swift in Sources */,
 				000D694724A4F982004284AB /* CustomButton.swift in Sources */,
 				000D692C24A3BDB9004284AB /* Array+Ext.swift in Sources */,
 				000D692A24A3BDB9004284AB /* Date+Ext.swift in Sources */,
 				000D692024A3BD6C004284AB /* WeatherNetwork.swift in Sources */,
+				000D695724A5B6BF004284AB /* RepositoryProvider.swift in Sources */,
+				000D696124A5BB0E004284AB /* DomainConvertibleType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

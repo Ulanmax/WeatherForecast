@@ -29,12 +29,18 @@ class MainNavigator {
                                         navigator: self)
         navigationController.pushViewController(vc, animated: true)
     }
+
+    func toAddNote() {
+//        let storyboard = UIStoryboard(name: "AddNote", bundle: nil)
 //
-//    func toRegionDetails(_ region: RegionModel) {
-//        let viewModel = RegionDetailsViewModel(useCase: services.makeRegionsNetwork(), navigator: self, region: region)
-//        let vc = storyBoard.instantiateViewController(ofType: RegionDetailsViewController.self)
-//        vc.viewModel = viewModel
-//        navigationController.pushViewController(vc, animated: true)
-//    }
+//        let mainNavigator = MainNavigator(services: networkUseCaseProvider,
+//                                                         navigationController: navigationController,
+//                                                         storyBoard: storyboard)
+//        let vc = UIViewController()
+//        
+//        vc.view.backgroundColor = .blue
+//        
+//        mainNavigator.toMain()
+    }
     
 }

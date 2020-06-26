@@ -4,8 +4,10 @@ platform :ios, '11.0'
 def rx_swift
   pod 'RxSwift', '~> 5.1.0'
   pod 'RxOptional'
-pod 'Alamofire'
-    pod 'RxAlamofire'
+  pod 'Alamofire'
+  pod 'RxAlamofire'
+  pod "RxRealm"
+  pod 'RealmSwift'
 end
 
 def rx_cocoa
@@ -26,6 +28,7 @@ target 'Weather' do
     rx_cocoa
     rx_swift
     cocoaLumberjack
+    pod 'QueryKit'
     pod 'IQKeyboardManagerSwift'
     pod 'PKHUD', '~> 5.0'
 
