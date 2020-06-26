@@ -57,6 +57,10 @@ class MainViewController: UIViewController {
             return
         }
         
+        let viewWillAppear = rx.sentMessage(#selector(UIViewController.viewWillAppear(_:)))
+        .mapToVoid()
+        .asDriverOnErrorJustComplete()
+        
         let cityTrigger = rx.sentMessage(#selector(MainViewController.changeCity(_:)))
             .map({ (value) -> String in
                 return value[0] as! String
@@ -70,6 +74,7 @@ class MainViewController: UIViewController {
         .asDriverOnErrorJustComplete()
         
         let input = MainViewModel.Input(
+            trigger: viewWillAppear,
             cityTrigger: cityTrigger.distinctUntilChanged(),
             countryTrigger: countryTrigger.distinctUntilChanged(),
             addNoteTrigger: buttonAddNote.rx.tap.asDriver()
@@ -94,7 +99,10 @@ class MainViewController: UIViewController {
             output.recommendation.drive(onNext: { [weak self] (value) in
                 self?.labelReccomendation.text = value
             }),
-            output.addNote.drive()
+            output.addNote.drive(),
+            output.lastNote.drive(onNext: { [weak self] (value) in
+                self?.labelNote.text = value
+            }),
         ]
         .forEach({$0.disposed(by: disposeBag)})
         

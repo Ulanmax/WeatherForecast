@@ -18,7 +18,7 @@ final class NotesRepository {
         self.repository = repository
     }
 
-    public func todoItems() -> Observable<[NoteModel]> {
+    public func fetchItems() -> Observable<[NoteModel]> {
         return repository.queryAll()
     }
     

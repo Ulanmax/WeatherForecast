@@ -28,7 +28,7 @@ class MainNavigator {
     
     func toMain() {
         let vc = storyBoard.instantiateViewController(ofType: MainViewController.self)
-        vc.viewModel = MainViewModel(useCase: network.makeWeatherNetwork(),
+        vc.viewModel = MainViewModel(network: network.makeWeatherNetwork(), repo: repo.makeNotesRepository(),
                                         navigator: self)
         navigationController.pushViewController(vc, animated: true)
     }

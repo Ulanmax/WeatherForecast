@@ -13,6 +13,7 @@ import RxCocoa
 final class MainViewModel: ViewModelType {
     
     struct Input {
+        let trigger: Driver<Void>
         let cityTrigger: Driver<String>
         let countryTrigger: Driver<String>
         let addNoteTrigger: Driver<Void>
@@ -24,15 +25,18 @@ final class MainViewModel: ViewModelType {
         let weatherDescription: Driver<String>
         let recommendation: Driver<String>
         let addNote: Driver<Void>
+        let lastNote: Driver<String>
         let fetching: Driver<Bool>
         let error: Driver<Error>
     }
     
-    private let useCase: WeatherNetwork
+    private let network: WeatherNetwork
+    private let repo: NotesRepository
     private let navigator: MainNavigator
     
-    init(useCase: WeatherNetwork, navigator: MainNavigator) {
-        self.useCase = useCase
+    init(network: WeatherNetwork, repo: NotesRepository, navigator: MainNavigator) {
+        self.network = network
+        self.repo = repo
         self.navigator = navigator
     }
     
@@ -43,8 +47,21 @@ final class MainViewModel: ViewModelType {
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
         
+        let notes = input.trigger.flatMapLatest {
+            return self.repo.fetchItems()
+                .trackError(errorTracker)
+                .asDriverOnErrorJustComplete()
+        }
+        
+        let lastNote = notes.map { value -> String in
+            if let lastNote = value.last {
+                return lastNote.body
+            }
+            return ""
+        }
+        
         let weather = input.cityTrigger.flatMapLatest { city -> SharedSequence<DriverSharingStrategy, WeatherModel> in
-            return self.useCase.fetchWeather(city: city)
+            return self.network.fetchWeather(city: city)
                         .trackActivity(activityIndicator)
                         .trackError(errorTracker)
                         .asDriverOnErrorJustComplete()
@@ -75,6 +92,7 @@ final class MainViewModel: ViewModelType {
             weatherDescription: weatherDescription,
             recommendation: recommendation,
             addNote: addNote,
+            lastNote: lastNote,
             fetching: fetching,
             error: errors
         )
