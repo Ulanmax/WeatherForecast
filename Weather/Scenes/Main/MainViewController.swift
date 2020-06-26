@@ -71,7 +71,8 @@ class MainViewController: UIViewController {
         
         let input = MainViewModel.Input(
             cityTrigger: cityTrigger.distinctUntilChanged(),
-            countryTrigger: countryTrigger.distinctUntilChanged()
+            countryTrigger: countryTrigger.distinctUntilChanged(),
+            addNoteTrigger: buttonAddNote.rx.tap.asDriver()
         )
         let output = viewModel.transform(input: input)
         
@@ -92,7 +93,8 @@ class MainViewController: UIViewController {
             }),
             output.recommendation.drive(onNext: { [weak self] (value) in
                 self?.labelReccomendation.text = value
-            })
+            }),
+            output.addNote.drive()
         ]
         .forEach({$0.disposed(by: disposeBag)})
         

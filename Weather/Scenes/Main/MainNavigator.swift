@@ -13,34 +13,35 @@ class MainNavigator {
     
     let storyBoard: UIStoryboard
     let navigationController: UINavigationController
-    let services: NetworkProvider
+    let network: NetworkProvider
+    let repo: RepositoryProvider
     
-    init(services: NetworkProvider,
+    init(network: NetworkProvider,
+         repo: RepositoryProvider,
          navigationController: UINavigationController,
          storyBoard: UIStoryboard) {
-        self.services = services
+        self.network = network
+        self.repo = repo
         self.navigationController = navigationController
         self.storyBoard = storyBoard
     }
     
     func toMain() {
         let vc = storyBoard.instantiateViewController(ofType: MainViewController.self)
-        vc.viewModel = MainViewModel(useCase: services.makeWeatherNetwork(),
+        vc.viewModel = MainViewModel(useCase: network.makeWeatherNetwork(),
                                         navigator: self)
         navigationController.pushViewController(vc, animated: true)
     }
 
     func toAddNote() {
-//        let storyboard = UIStoryboard(name: "AddNote", bundle: nil)
-//
-//        let mainNavigator = MainNavigator(services: networkUseCaseProvider,
-//                                                         navigationController: navigationController,
-//                                                         storyBoard: storyboard)
-//        let vc = UIViewController()
-//        
-//        vc.view.backgroundColor = .blue
-//        
-//        mainNavigator.toMain()
+        let storyboard = UIStoryboard(name: "AddNote", bundle: nil)
+        let navigator = AddNoteNavigator(navigationController: navigationController)
+        let viewModel = AddNoteViewModel(repo: repo.makeNotesRepository(), navigator: navigator)
+        let vc = storyboard.instantiateViewController(ofType: AddNoteViewController.self)
+        vc.viewModel = viewModel
+        let nc = UINavigationController(rootViewController: vc)
+        navigationController.present(nc, animated: true, completion: nil)
+
     }
     
 }

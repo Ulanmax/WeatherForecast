@@ -14,10 +14,13 @@ final class Application {
 
     private let networkUseCaseProvider: NetworkProvider
     
+    private let repositoryProvider: RepositoryProvider
+    
     var window: UIWindow?
     
     private init() {
         self.networkUseCaseProvider = NetworkProvider()
+        self.repositoryProvider = RepositoryProvider()
     }
     
     func configureMainInterface(in window: UIWindow) {
@@ -34,7 +37,8 @@ final class Application {
         
         let navigationController = UINavigationController()
 
-        let mainNavigator = MainNavigator(services: networkUseCaseProvider,
+        let mainNavigator = MainNavigator(network: networkUseCaseProvider,
+                                          repo: repositoryProvider,
                                                          navigationController: navigationController,
                                                          storyBoard: storyboard)
         let vc = UIViewController()

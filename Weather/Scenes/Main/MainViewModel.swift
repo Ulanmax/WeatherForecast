@@ -15,6 +15,7 @@ final class MainViewModel: ViewModelType {
     struct Input {
         let cityTrigger: Driver<String>
         let countryTrigger: Driver<String>
+        let addNoteTrigger: Driver<Void>
     }
     struct Output {
         let city: Driver<String>
@@ -22,6 +23,7 @@ final class MainViewModel: ViewModelType {
         let temperature: Driver<String>
         let weatherDescription: Driver<String>
         let recommendation: Driver<String>
+        let addNote: Driver<Void>
         let fetching: Driver<Bool>
         let error: Driver<Error>
     }
@@ -62,23 +64,9 @@ final class MainViewModel: ViewModelType {
         let recommendation = weather.map { value -> String in
             return WeatherTypes.determineType(for: value.main.temp)
         }
-//
-//        let search = Driver.combineLatest(input.searchTrigger, regions).map { (value) -> [RegionTableViewCellModel] in
-//            return value.1.filter { (model) -> Bool in
-//                model.name.contains(value.0) || value.0 == ""
-//            }
-//        }
-//
-//        let selectedRegion = input.selection.withLatestFrom(regions) { (indexPath, regions) -> RegionTableViewCellModel in
-//                return regions[indexPath.row]
-//            }
-//        .do(onNext:
-//            { [weak self] (cellModel) in
-//                if let region = cellModel.region {
-//                    self?.navigator.toRegionDetails(region)
-//                }
-//            }
-//        ).mapToVoid()
+        
+        let addNote = input.addNoteTrigger
+        .do(onNext: navigator.toAddNote)
         
         return Output(
             city: input.cityTrigger,
@@ -86,6 +74,7 @@ final class MainViewModel: ViewModelType {
             temperature: temperature,
             weatherDescription: weatherDescription,
             recommendation: recommendation,
+            addNote: addNote,
             fetching: fetching,
             error: errors
         )
